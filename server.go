@@ -115,7 +115,6 @@ func handleServerConn(conn net.Conn) {
 	conn.SetReadDeadline(time.Time{})
 
 	if !strings.HasPrefix(reqStr, "GET /stream HTTP/1.1") {
-		// Not our custom WebSocket handshake
 		log.Printf("Invalid HTTP handshake from %s, dropping connection", conn.RemoteAddr())
 		return
 	}
